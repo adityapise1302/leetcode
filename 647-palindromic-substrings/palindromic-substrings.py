@@ -1,7 +1,6 @@
 class Solution:
     def countSubstrings(self, s: str) -> int:
         count = 0
-        hash_set = set()
         for i in range(len(s)):
             l, r = i, i
             while l >= 0 and r < len(s) and s[l] == s[r]:
