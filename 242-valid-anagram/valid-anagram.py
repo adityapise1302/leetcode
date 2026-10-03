@@ -1,16 +1,9 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
-        hashTable = dict()
-        if len(s) != len(t):
-            return False
+        s_table = [0] * 26
+        t_table = [0] * 26
         for char in s:
-            hashTable[char] = hashTable.get(char, 0) + 1
+            s_table[ord(char) - ord('a')] += 1
         for char in t:
-            if hashTable.get(char, 0) > 0:
-                hashTable[char] -= 1
-            else:
-                return False
-        for key, val in hashTable.items():
-            if val != 0:
-                return False
-        return True
+            t_table[ord(char) - ord('a')] += 1
+        return s_table == t_table
