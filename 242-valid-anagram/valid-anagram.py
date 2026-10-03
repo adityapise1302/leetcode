@@ -1,5 +1,7 @@
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
         s_table = [0] * 26
         t_table = [0] * 26
         for char in s:
